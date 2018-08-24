@@ -22,9 +22,9 @@ $(document).ready(function(){
 		label = $(this).parent().find("label").text();
 			current = $(this).is(':checked') == true ? "Yes":"No";
 	    }
-		else if ($(this).attr('type') == "select"){
+		else if ($(this).prop('nodeName') == "SELECT")){
 			id = $(this).attr('id');
-		label = $(this).parent().find("label").text();
+			label = $(this).parent().find("label").text();
 			current = $("#"+id+" option:selected").text()
 		}
 		else{
@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 		if ((typeof(label) != "undefined") && typeof(current) != "undefined" && label != "" && current != ""){
 			html += "<p><b>"+label + "</b>: "+ current + "</p>";
-	    }
+	    	}
 	});
 	$(".rendered-form").html(html);
 });
