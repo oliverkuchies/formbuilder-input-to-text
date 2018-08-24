@@ -3,14 +3,14 @@ $(document).ready(function(){
 	$(".rendered-form p, .rendered-form h1, .rendered-form h2, .rendered-form h3, .rendered-form h4, .rendered-form h5, .rendered-form h6, .rendered-form input[type='checkbox']:checked, .rendered-form input[type='text'], .rendered-form input[type='radio']:checked,.rendered-form select, .rendered-form textarea, .rendered-form input[type='number']").each(function(){
 		var current = "";
 		var label = "";
-		if ($(this).prop('nodeName') == 'H1' || 
+		if (
+		$(this).prop('nodeName') == 'H1' || 
 		$(this).prop('nodeName') == 'H2' || 
 		$(this).prop('nodeName') == 'H3' ||
 		$(this).prop('nodeName') == 'H4' || 
 		$(this).prop('nodeName') == 'H5' || 
 		$(this).prop('nodeName') == 'H6' || 
-			$(this).prop('nodeName') == 'P' 
-		)
+		$(this).prop('nodeName') == 'P' )
 		{
 		html += '<'+ $(this).prop('nodeName') + '>' + $(this).html() + '</'+ $(this).prop('nodeName') + '>';
 		}
