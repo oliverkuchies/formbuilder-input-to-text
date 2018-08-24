@@ -1,8 +1,9 @@
-$(document).ready(function(){
+         $(document).ready(function(){
                 var html = "";
                 $(".rendered-form p, .rendered-form h1, .rendered-form h2, .rendered-form h3, .rendered-form h4, .rendered-form h5, .rendered-form h6, .rendered-form input[type='checkbox']:checked, .rendered-form input[type='text'], .rendered-form input[type='radio']:checked,.rendered-form select, .rendered-form textarea, .rendered-form input[type='number']").each(function(){
                     var current = "";
                     var label = "";
+                    var selected_element = "";
                     if (
                         $(this).prop('nodeName') == 'H1' ||
                         $(this).prop('nodeName') == 'H2' ||
@@ -16,7 +17,8 @@ $(document).ready(function(){
                     }
                     else if ($(this).attr('type') == "radio"){
                         id = $(this).attr('id');
-                        label = $(this).parent().parent().parent().find("label").first().text() + "</b>" + ": " + $("#"+id + ":checked").parent().find("label").text()
+                        current = $('#' + id + ':checked').parent().find('label').text();
+                        label = $('#' + id + ':checked').parent().parent().parent().find('label').first().text();
                     }
                     else if ($(this).attr('type') == "checkbox"){
                         label = $(this).parent().find("label").text();
@@ -35,3 +37,5 @@ $(document).ready(function(){
                     html += "<p><b>"+label + "</b>: "+ current + "</p>";
                 }
             });
+            $(".rendered-form").html(html);
+        })
